@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de envío</title>
+    <link rel="stylesheet" type="text/css" href="pago.css">
+  
+</head>
+<body>
+    
+ <nav>
+    <span id="usuarioConectado"></span>
+    <a onclick="cerrarSesion()"><img src="cerrarser.jpg" alt="cerrarSesion" class="btn-img" width="40" height="40"></a>
+    </nav>
+ 
+<h1>Formulario de envio</h1>
+<form id="registerForm" action="https://sheetdb.io/api/v1/6xddpttp6vp1b" method="post" id="sheetdb-form">
+  <label for="NombresyApellido">Nombres y Apellido:</label>
+    <input type="text" id="NombresyApellido" name="data[NombresyApellido]" required><br><br> 
+    <label for="Dni">Dni:</label>
+    <input type="text" id="Dni" name="data[Dni]" required><br><br> 
+  <label for="direccion">Dirección:</label>
+  <input type="text" id="direccion" name="data[direccion]"required><br><br>
+  <label for="localidad">Localidad:</label>
+  <input type="text" id="localidad" name="data[localidad]"required><br><br>
+  <label for="provincia">Provincia:</label>
+    <select id="provincia" onchange="updatePrices()">
+        <option value="SELECCIONAR">SELECCIONAR</option>
+      <option value="CABA">CABA</option>
+        <option value="GBA">GBA</option>
+        <option value="ROSARIO">ROSARIO</option>
+        <option value="SANTA_FE">SANTA FE</option>
+        <option value="VILLA_MARIA">VILLA MARÍA</option>
+        <option value="CORDOBA">CÓRDOBA</option>
+    </select><br><br>
+    <label for="codigoPostal">Código Postal:</label>
+    <input type="text" id="codigoPostal" name="data[codigoPostal]" required><br><br> 
+    <label for="Telefono">Telefono:</label>
+    <input type="text" id="Telefono" name="data[Telefono]" required><br><br> 
+  </form>
+  <h2> Confirmado de pago</h2>
+  <table id="pedidoComputadora">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Título</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody id="pedidoTable">
+
+    </tbody>
+</table>
+
+<table id="pedidoMovil">
+        <tbody id="pedidoTableMovil">
+            <!-- Aquí se llenarán los productos del pedido dinámicamente -->
+        </tbody>
+    </table>
+    <p>Envio: <span id="envio">$0</span> </p>
+  
+ <p>Total: <span id="total">$0</span></p>
+
+
+ <a onclick="alertForms()"><button onclick="confirmPayment()">Confirmar pago</button></a>
+  <script src="script.js"></script>
+<script src="pedido.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Detectar si es móvil o computadora al cargar la página
+    if (window.innerWidth <= 768) {
+        document.getElementById('pedidoComputadora').style.display = 'none';
+        document.getElementById('pedidoMovil').style.display = 'table';
+    } else {
+        document.getElementById('pedidoComputadora').style.display = 'table';
+        document.getElementById('pedidoMovil').style.display = 'none';
+    }
+    
+    // Detectar el redimensionamiento de la ventana
+    window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+            document.getElementById('pedidoComputadora').style.display = 'none';
+            document.getElementById('pedidoMovil').style.display = 'table';
+        } else {
+            document.getElementById('pedidoComputadora').style.display = 'table';
+            document.getElementById('pedidoMovil').style.display = 'none';
+        }
+    });
+});
+
+</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          // Obtener el usuario conectado de localStorage
+          var usuarioConectado = JSON.parse(localStorage.getItem("usuarioConectado"));
+        
+          if (usuarioConectado) {
+            // Mostrar el nombre del usuario conectado en el elemento con id "usuarioConectado"
+            document.getElementById("usuarioConectado").textContent = usuarioConectado.email;
+          } else {
+            // Redirigir a la página de inicio de sesión si no hay usuario conectado
+            window.location.href = "incio.html";
+          }
+        });
+        
+        function cerrarSesion() {
+          // Eliminar el usuario conectado de localStorage
+          localStorage.removeItem("usuarioConectado");
+        
+          // Redirigir a la página de inicio de sesión
+          window.location.href = "index.html";
+        }
+        </script>
+
+      
+
+<script>
+  // Función para limpiar y convertir el valor a número
+  function limpiarNumero(valor) {
+      // Eliminar cualquier símbolo que no sea dígito o punto decimal
+      valor = valor.replace(/[^0-9,-]+/g, '');
+      // Reemplazar el separador de miles (punto) por nada y cambiar coma por punto para decimales
+      valor = valor.replace(/\./g, '').replace(',', '.');
+      return parseFloat(valor) || 0;
+  }
+  
+  // Función para formatear el número en el estilo "1.000.000,00"
+  function formatearNumero(numero) {
+      return numero.toFixed(2)  // Asegurar dos decimales
+          .replace('.', ',')  // Reemplazar el punto decimal por una coma
+          .replace(/\B(?=(\d{3})+(?!\d))/g, '.');  // Agregar puntos como separadores de miles
+  }
+  
+  // Recuperar la información del carrito desde el Local Storage
+  var carritoInfoJSON = localStorage.getItem('carritoInfo');
+  if (carritoInfoJSON) {
+      var carritoInfo = JSON.parse(carritoInfoJSON);
+      var pedidoTable = document.getElementById('pedidoTable');
+      var pedidoTableMovil = document.getElementById('pedidoTableMovil');
+      var totalSpan = document.getElementById('total');
+      var envioSpan = document.getElementById('envio');
+  
+      var total = 0;
+  
+      // Añadir detalles del pedido a la tabla de computadora
+      carritoInfo.detalles.forEach(detalle => {
+          var subtotalLimpio = limpiarNumero(detalle.subtotal);
+  
+          var newRow = pedidoTable.insertRow();
+          newRow.innerHTML = `
+              <td>${detalle.codigo}</td>
+              <td>${detalle.titulo}</td>
+              <td>${detalle.precio}</td>
+              <td>${detalle.cantidad}</td>
+              <td>${detalle.subtotal}</td>
+          `;
+  
+          // Añadir detalles del pedido a la tabla de móvil
+          pedidoTableMovil.innerHTML += `
+              <tr>
+                  <td>${detalle.codigo} ; ${detalle.titulo}</td>
+              </tr>
+              <tr>
+                  <td>${detalle.precio} x ${detalle.cantidad} U = SUBTOTAL: ${detalle.subtotal}</td>
+              </tr>
+          `;
+  
+          // Sumar el subtotal al total (ya formateado)
+          total += subtotalLimpio;
+      });
+  
+      // Obtener el valor del envío y limpiarlo
+      var envio = limpiarNumero(envioSpan.textContent);
+  
+      // Sumar el envío al total
+      var totalConEnvio = total + envio;
+  
+      // Formatear el total antes de mostrarlo
+      totalSpan.textContent = `$${formatearNumero(totalConEnvio)}`;
+  }
+  </script>
+  
+
+
+<script>
+  function confirmPayment() {
+    // Validate the form here
+    var NombresyApellido = document.getElementById('NombresyApellido').value;
+    var Dni = document.getElementById('Dni').value;
+    var direccion = document.getElementById('direccion').value;
+    var localidad = document.getElementById('localidad').value;
+    var provincia = document.getElementById('provincia').value;
+    var codigoPostal = document.getElementById('codigoPostal').value;
+    var Telefono = document.getElementById('Telefono').value;
+
+    if (!direccion || !localidad || provincia === 'SELECCIONAR' || !codigoPostal) {
+      // Show alert if form is incomplete
+      alert("Por favor, complete todos los campos del formulario de envío.");
+      return;
+    }
+
+    // Update WhatsApp link with form data and selected table columns
+    var mensaje = "Nuevo pedido Sr " + document.getElementById('usuarioConectado').innerText +
+      ", formulario: NombresyApellido - " + NombresyApellido + ", Dni - " + Dni + ", Dirección - " + direccion + ", Localidad - " + localidad +
+      ", Provincia - " + provincia + ", Código Postal - " + codigoPostal +
+      ", Telefono - " + Telefono + ", tabla - ";
+
+    // Iterate through each row in the table and extract desired columns
+    var tableRows = document.getElementById('pedidoTable').getElementsByTagName('tr');
+    for (var i = 0; i < tableRows.length; i++) {
+      var columns = tableRows[i].getElementsByTagName('td');
+      mensaje += "\nCódigo - " + columns[0].innerText +
+                 ", Precio - " + columns[2].innerText +
+                 ", Cantidad - " + columns[4].innerText +
+                 ", Subtotal - " + columns[5].innerText;
+    }
+    
+
+    // Add total to the message
+    mensaje += "\nTotal - " + document.getElementById('total').innerText;
+
+    // Construct the WhatsApp link
+    var whatsappLink = "https://api.whatsapp.com/send?phone=5491160224513&text=" + encodeURIComponent(mensaje);
+
+    // Show the WhatsApp link for testing (you can remove this line in production)
+    alert(whatsappLink);
+
+    // Redirect to WhatsApp
+    window.location.href = whatsappLink;
+  }
+</script>
+</body>
+</html>

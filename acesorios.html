@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="catalogo.css">
+    <title>Tienda Apple</title>
+    
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="catalogo.css">
+        <title>Tienda Apple</title>
+     
+    </head>
+    <body>
+        <header>
+            <a href="index.html"><img src="apple.png" alt="Logo" style="width: 60px; height: 60px;"></a>
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="catalogo.html">Home</a></li>
+                    <li>
+                        <a href="#">Catálogo</a>
+                        <ul class="sub-menu">
+                            <li><a href="iphone.html">iPhone</a></li>
+                            <li><a href="mackbook.html">MacBook</a></li>
+                            <li><a href="ipad.html">iPad</a></li>
+                            <li><a href="imac.html">iMac</a></li>
+                            <li><a href="watche.html">Watches</a></li>
+                            <li><a href="acesorios.html">Accesorios</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="carrito.html">🛒</a></li>
+                </ul>
+            </nav>
+            <div class="search-container">
+                <form id="form-inline">
+                    <input class="form-control" type="search" id="searchInput" placeholder="Buscar productos">
+                    <button type="button" id="buscar-btn">🔍</button>
+                </form>
+            </div>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        </header>
+        
+        <div class="menu-mobile">
+            <div class="close-icon" onclick="toggleMenu()">✖</div>
+            <ul>
+                <li><a href="catalogo.html">Home</a></li>
+                <li>
+                    <a href="#">Catálogo</a>
+                    <ul class="sub-menu-mobile">
+                        <li><a href="iphone.html">iPhone</a></li>
+                        <li><a href="mackbook.html">MacBook</a></li>
+                        <li><a href="ipad.html">iPad</a></li>
+                        <li><a href="imac.html">iMac</a></li>
+                        <li><a href="watche.html">Watches</a></li>
+                        <li><a href="acesorios.html">Accesorios</a></li>
+                    </ul>
+                </li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="carrito.html">🛒</a></li>
+            </ul>
+        </div>
+    
+    <main>
+       
+            <h1>Productos Destacados</h1>
+            <label for="ordenar">Ordenar por precio:</label>
+    <select id="ordenar" onchange="ordenarPorPrecio(this.value)">
+        <option value="menor">Menor a Mayor</option>
+        <option value="mayor">Mayor a Menor</option>
+    </select>
+    <aside id="catalogo">
+        <div class="catalogo-item">
+            <span id="codigo">ART-00061</span><br>
+            <img src="https://http2.mlstatic.com/D_NQ_NP_664823-MLA71304726003_082023-O.jpg" alt="imagen" width="200" height="150"><br>
+            <H5><span class="titulo">Magic KeyBoard 11" for iPad Air M2</span></H5><br>
+            <p>$ <span class="precio">593750</span></p><br>
+            <p> U$S <span class="dolares">475</span></p><br>
+            <input type="number" id="cantidad1"><br>
+            <button onclick="agregarAlCarrito('ART-00061', 'Magic KeyBoard 11 for iPad Air M2', '593750', 'cantidad1')">Agregar al carrito</button>
+        </div>
+            <div class="catalogo-item">
+                <span id="codigo">ART-00062</span><br>
+                <img src="https://http2.mlstatic.com/D_NQ_NP_700387-MLA76735970287_052024-O.jpg" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Magic KeyBoard 13" for iPad Pro M4</span></H5><br><p>$ <span class="precio">765625</span></p><br><p> U$S <span class="dolares">612.5</span></p><br><input type="number" id="cantidad2"><br><button onclick="agregarAlCarrito('ART-00062', 'Magic KeyBoard 13 for iPad Pro M4', '765625', 'cantidad2')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00063</span><br><img src="https://http2.mlstatic.com/D_NQ_NP_770852-MLA48394504095_112021-O.jpg" alt="imagen" width="200" height="150"><br><H5><span class="titulo">AirTag (1 Pack)</span></H5><br><p>$ <span class="precio">101562.5</span></p><br><p> U$S <span class="dolares">81.25</span></p><br><input type="number" id="cantidad3"><br><button onclick="agregarAlCarrito('ART-00063', 'AirTag (1 Pack)', '101562.5', 'cantidad3')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00064</span><br><img src="https://http2.mlstatic.com/D_NQ_NP_729202-MLA46147515274_052021-O.jpg" alt="imagen" width="200" height="150"><br><H5><span class="titulo">AirTag (4 Pack)</span></H5><br><p>$ <span class="precio">218750</span></p><br><p> U$S <span class="dolares">175</span></p><br><input type="number" id="cantidad4"><br><button onclick="agregarAlCarrito('ART-00064', 'AirTag (4 Pack)', '218750', 'cantidad4')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00065</span><br><img src="https://http2.mlstatic.com/D_NQ_NP_911533-MLA53244962397_012023-O.jpg" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple TV 4K New - 64GB (2022) MN873LL/A</span></H5><br><p>$ <span class="precio">359375</span></p><br><p> U$S <span class="dolares">287.5</span></p><br><input type="number" id="cantidad5"><br><button onclick="agregarAlCarrito('ART-00065', 'Apple TV 4K New - 64GB (2022) MN873LL/A', '359375', 'cantidad5')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00066</span><br><img src="https://http2.mlstatic.com/D_NQ_NP_911533-MLA53244962397_012023-O.jpg" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple TV 4K New - 128GB (2022) MN893LL/A</span></H5><br><p>$ <span class="precio">437500</span></p><br><p> U$S <span class="dolares">350</span></p><br><input type="number" id="cantidad6"><br><button onclick="agregarAlCarrito('ART-00066', 'Apple TV 4K New - 128GB (2022) MN893LL/A', '437500', 'cantidad6')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00081</span><br><img src="https://http2.mlstatic.com/D_NQ_NP_655451-MLA51640001083_092022-F.webp" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Magic Mouse 2 White</span></H5><br><p>$ <span class="precio">234375</span></p><br><p> U$S <span class="dolares">187.5</span></p><br><input type="number" id="cantidad7"><br><button onclick="agregarAlCarrito('ART-00081', 'Magic Mouse 2 White', '234375', 'cantidad7')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00082</span><br><img src="https://http2.mlstatic.com/D_NQ_NP_682337-MLU70909452761_082023-F.webp" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Magic Mouse 2 Black</span></H5><br><p>$ <span class="precio">265625</span></p><br><p> U$S <span class="dolares">212.5</span></p><br><input type="number" id="cantidad8"><br><button onclick="agregarAlCarrito('ART-00082', 'Magic Mouse 2 Black', '265625', 'cantidad8')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00083</span><br><img src="https://http2.mlstatic.com/D_NQ_NP_822892-MLU75329046065_032024-F.webp" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Magic TrackPad 2 White</span></H5><br><p>$ <span class="precio">328125</span></p><br><p> U$S <span class="dolares">262.5</span></p><br><input type="number" id="cantidad9"><br><button onclick="agregarAlCarrito('ART-00083', 'Magic TrackPad 2 White', '328125', 'cantidad9')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00084</span><br><img src="https://http2.mlstatic.com/D_NQ_NP_735555-MLA74980030597_032024-F.webp" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Magic TrackPad 2 Black</span></H5><br><p>$ <span class="precio">359375</span></p><br><p> U$S <span class="dolares">287.5</span></p><br><input type="number" id="cantidad10"><br><button onclick="agregarAlCarrito('ART-00084', 'Magic TrackPad 2 Black', '359375', 'cantidad10')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00085</span><br><img src="https://http2.mlstatic.com/D_NQ_NP_682494-MLU73594539446_122023-F.webp" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Magic KeyBoard With Numeric Keypad</span></H5><br><p>$ <span class="precio">328125</span></p><br><p> U$S <span class="dolares">262.5</span></p><br><input type="number" id="cantidad11"><br><button onclick="agregarAlCarrito('ART-00085', 'Magic KeyBoard With Numeric Keypad', '328125', 'cantidad11')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00086</span><br><img src="https://http2.mlstatic.com/D_NQ_NP_682494-MLU73594539446_122023-O.webp" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Magic KeyBoard With Touch ID and Numeric Keypad</span></H5><br><p>$ <span class="precio">421875</span></p><br><p> U$S <span class="dolares">337.5</span></p><br><input type="number" id="cantidad12"><br><button onclick="agregarAlCarrito('ART-00086', 'Magic KeyBoard With Touch ID and Numeric Keypad', '421875', 'cantidad12')">Agregar al carrito</button></div>
+        </aside>
+
+    </main>
+
+    <footer>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#catalogo">Catálogo</a></li>
+            <li><a href="#contactos">Contactos</a></li>
+        </ul>
+        <p>&copy; 2024 Tienda Apple</p>
+    </footer>
+    <script src="script.js"></script>
+  
+
+    <script src="script.js"></script>
+    <script>
+        // Ejemplo de agregar productos al carrito desde la página de inicio
+        // Puedes personalizar esto según tu diseño y necesidades
+        
+        function agregarProductoDesdeIndex(codigo, titulo, precio, cantidad) {
+            agregarAlCarrito(codigo, titulo, precio, cantidad);
+            alert('Producto agregado al carrito desde la página de inicio.');
+        }
+      </script>
+         <script>
+            // Función para formatear el precio
+       function formatearPrecio(precio) {
+           // Convertir a número y formatear a 2 decimales
+           return precio.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+       }
+   
+       // Función para convertir y actualizar precios en el DOM
+       function actualizarPrecios() {
+           // Obtener todos los elementos con clase 'precio' y 'dolares'
+           const precios = document.querySelectorAll('.precio');
+           const dolares = document.querySelectorAll('.dolares');
+   
+           // Iterar sobre cada elemento para formatear y actualizar
+           precios.forEach(precio => {
+               const valor = parseFloat(precio.innerText);
+               precio.innerText = formatearPrecio(valor);
+           });
+   
+           dolares.forEach(dolar => {
+               const valor = parseFloat(dolar.innerText);
+               // Formatear a 3 decimales para el formato en dólares
+               dolar.innerText = valor.toLocaleString('es-ES', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+           });
+       }
+   
+       // Llamar a la función para actualizar los precios al cargar la página
+       window.onload = actualizarPrecios;
+         </script>
+      
+</body>
+</html>

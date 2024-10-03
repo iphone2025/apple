@@ -1,0 +1,172 @@
+/* Estilos generales */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #1d1d1f; /* Gris oscuro típico de Apple */
+  background-color: #f5f5f7; /* Fondo claro, característico de Apple */
+}
+
+/* Estilos para la tabla del carrito en computadora */
+#carritoComputadora {
+  display: table;
+  width: 100%;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+#carritoTable tr {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+#carritoTable td {
+  padding: 15px;
+  text-align: left;
+  font-size: 16px;
+}
+
+#carritoTable img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Ocultar el carrito de móvil en pantallas grandes */
+#carritoMovil {
+  display: none;
+}
+
+/* Estilos para el total y botones en computadora */
+#total {
+  font-size: 50px;
+  font-weight: 700;
+  color: #1d1d1f; /* Gris oscuro Apple */
+  text-align: right;
+}
+
+button {
+  background-color: hsl(204, 82%, 47%); /* Azul Apple */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+a {
+  text-decoration: none;
+  color: #0070c9; /* Azul claro Apple */
+  font-size: 18px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para móvil */
+@media screen and (max-width: 768px) {
+  #carritoComputadora {
+      display: none;
+  }
+
+  #carritoMovil {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-top: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .carrito-item {
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .carrito-item img {
+      width: 25px;
+      height: 25px;
+      align-self: flex-end;
+  }
+
+  .carrito-item h4, .carrito-item h2 {
+      margin: 10px 0;
+      font-size: 18px;
+      color: #1d1d1f;
+  }
+
+  .carrito-item .item-details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .carrito-item .item-details span, 
+  .carrito-item .item-details input {
+      font-size: 16px;
+      color: #1d1d1f;
+  }
+
+  .carrito-item .item-details input {
+      width: 50px;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #e0e0e0;
+  }
+
+  /* Botón de eliminar en móvil */
+  .carrito-item button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      align-self: flex-end;
+  }
+
+  /* Estilos para el total y botones en móvil */
+  #total {
+      font-size: 40px;
+      color: #1d1d1f;
+      margin: 20px 0;
+      text-align: right;
+  }
+
+  button {
+      background-color: #007bff; /* Azul Apple */
+      padding: 8px 16px;
+      font-size: 14px;
+  }
+
+  button:hover {
+      background-color: #005bb5;
+  }
+}
+
+/* Estilo del botón "Iniciar sesión" */
+#alertMessage button {
+  background-color: #007bff; /* Celeste Apple */
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 8px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#alertMessage button:hover {
+  background-color: #005bb5;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="catalogo.css">
+    <title>Tienda Apple</title>
+ 
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="apple.png" alt="Logo" style="width: 60px; height: 60px;"></a>
+        <nav class="nav-desktop">
+            <ul>
+                <li><a href="catalogo.html">Home</a></li>
+                <li>
+                    <a href="#">Catálogo</a>
+                    <ul class="sub-menu">
+                        <li><a href="iphone.html">iPhone</a></li>
+                        <li><a href="mackbook.html">MacBook</a></li>
+                        <li><a href="ipad.html">iPad</a></li>
+                        <li><a href="imac.html">iMac</a></li>
+                        <li><a href="watche.html">Watches</a></li>
+                        <li><a href="acesorios.html">Accesorios</a></li>
+                    </ul>
+                </li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="carrito.html">🛒</a></li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <form id="form-inline">
+                <input class="form-control" type="search" id="searchInput" placeholder="Buscar productos">
+                <button type="button" id="buscar-btn">🔍</button>
+            </form>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </header>
+    
+    <div class="menu-mobile">
+        <div class="close-icon" onclick="toggleMenu()">✖</div>
+        <ul>
+            <li><a href="catalogo.html">Home</a></li>
+            <li>
+                <a href="#">Catálogo</a>
+                <ul class="sub-menu-mobile">
+                    <li><a href="iphone.html">iPhone</a></li>
+                    <li><a href="mackbook.html">MacBook</a></li>
+                    <li><a href="ipad.html">iPad</a></li>
+                    <li><a href="imac.html">iMac</a></li>
+                    <li><a href="watche.html">Watches</a></li>
+                    <li><a href="acesorios.html">Accesorios</a></li>
+                </ul>
+            </li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="carrito.html">🛒</a></li>
+        </ul>
+    </div>
+    
+    <main>
+       
+        
+        <h1>Productos Destacados</h1>
+        <label for="ordenar">Ordenar por precio:</label>
+<select id="ordenar" onchange="ordenarPorPrecio(this.value)">
+    <option value="menor">Menor a Mayor</option>
+    <option value="mayor">Mayor a Menor</option>
+</select>
+<aside id="catalogo"><div class="catalogo-item"><span id="codigo">ART-00087</span><br><img src="https://alienstore.net.//imgs/41VXhVZPmsL._AC_.jpg" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Air 13</span></H5><br><p>$ <span class="precio">940953.125</span></p><br><p> U$S <span class="dolares">752.7625</span></p><br><input type="number" id="cantidad1"><br><button onclick="agregarAlCarrito('ART-00087', 'Apple iPad Air 13', '940953.125', 'cantidad1')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00088</span><br><img src="https://alienstore.net.//imgs/pad-102-9th-generation-256-gb-wifi.jpg" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad 10.2</span></H5><br><p>$ <span class="precio">229500</span></p><br><p> U$S <span class="dolares">183.6</span></p><br><input type="number" id="cantidad2"><br><button onclick="agregarAlCarrito('ART-00088', 'Apple iPad 10.2', '229500', 'cantidad2')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00089</span><br><img src="https://alienstore.net.//imgs/magic-keyboard-ipad-pro-de-11-pulgadas-2-genera.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple Magic Keyboard iPad Pro de 11 pulgadas (2.ª generación)</span></H5><br><p>$ <span class="precio">258187.5</span></p><br><p> U$S <span class="dolares">206.55</span></p><br><input type="number" id="cantidad3"><br><button onclick="agregarAlCarrito('ART-00089', 'Apple Magic Keyboard iPad Pro de 11 pulgadas (2.ª generación)', '258187.5', 'cantidad3')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00090</span><br><img src="https://alienstore.net.//imgs/magic-keyboard-ipad-pro-de-129-pulgadas-4-generacion.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple Magic Keyboard iPad Pro de 12,9 pulgadas (4.ª generación)</span></H5><br><p>$ <span class="precio">286875</span></p><br><p> U$S <span class="dolares">229.5</span></p><br><input type="number" id="cantidad4"><br><button onclick="agregarAlCarrito('ART-00090', 'Apple Magic Keyboard iPad Pro de 12,9 pulgadas (4.ª generación)', '286875', 'cantidad4')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00091</span><br><img src="https://alienstore.net.//imgs/pad-102-9th-generation-256-gb-wifi.jpg" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad 10.2</span></H5><br><p>$ <span class="precio">309828.125</span></p><br><p> U$S <span class="dolares">247.8625</span></p><br><input type="number" id="cantidad5"><br><button onclick="agregarAlCarrito('ART-00091', 'Apple iPad 10.2', '309828.125', 'cantidad5')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00092</span><br><img src="https://alienstore.net.//imgs/ipad-mini-6-256-gb-wi.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad mini 6 - 64 GB Wi-Fi</span></H5><br><p>$ <span class="precio">315562.5</span></p><br><p> U$S <span class="dolares">252.45</span></p><br><input type="number" id="cantidad6"><br><button onclick="agregarAlCarrito('ART-00092', 'Apple iPad mini 6 - 64 GB Wi-Fi', '315562.5', 'cantidad6')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00093</span><br><img src="https://alienstore.net.//imgs/pad-109-10th-generation-256-gb-wif.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad 10.9</span></H5><br><p>$ <span class="precio">332781.25</span></p><br><p> U$S <span class="dolares">266.225</span></p><br><input type="number" id="cantidad7"><br><button onclick="agregarAlCarrito('ART-00093', 'Apple iPad 10.9', '332781.25', 'cantidad7')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00094</span><br><img src="https://alienstore.net.//imgs/py-of-ipad-air-5-109-256-gb-wi-.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Air 5 10.9</span></H5><br><p>$ <span class="precio">378671.875</span></p><br><p> U$S <span class="dolares">302.9375</span></p><br><input type="number" id="cantidad8"><br><button onclick="agregarAlCarrito('ART-00094', 'Apple iPad Air 5 10.9', '378671.875', 'cantidad8')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00095</span><br><img src="https://alienstore.net.//imgs/ipad-mini-6-256-gb-wi.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad mini 6 - 256 GB Wi-Fi</span></H5><br><p>$ <span class="precio">407359.375</span></p><br><p> U$S <span class="dolares">325.8875</span></p><br><input type="number" id="cantidad9"><br><button onclick="agregarAlCarrito('ART-00095', 'Apple iPad mini 6 - 256 GB Wi-Fi', '407359.375', 'cantidad9')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00096</span><br><img src="https://alienstore.net.//imgs/pad-109-10th-generation-256-gb-wif.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad 10.9</span></H5><br><p>$ <span class="precio">424578.125</span></p><br><p> U$S <span class="dolares">339.6625</span></p><br><input type="number" id="cantidad10"><br><button onclick="agregarAlCarrito('ART-00096', 'Apple iPad 10.9', '424578.125', 'cantidad10')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00097</span><br><img src="https://alienstore.net.//imgs/py-of-ipad-air-5-109-256-gb-wi-.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Air 5 10.9</span></H5><br><p>$ <span class="precio">510640.625</span></p><br><p> U$S <span class="dolares">408.5125</span></p><br><input type="number" id="cantidad11"><br><button onclick="agregarAlCarrito('ART-00097', 'Apple iPad Air 5 10.9', '510640.625', 'cantidad11')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00098</span><br><img src="https://alienstore.net.//imgs/ipad-pro-11-m2-chip-1-tb-wifi.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Pro 11</span></H5><br><p>$ <span class="precio">585218.75</span></p><br><p> U$S <span class="dolares">468.175</span></p><br><input type="number" id="cantidad12"><br><button onclick="agregarAlCarrito('ART-00098', 'Apple iPad Pro 11', '585218.75', 'cantidad12')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-00099</span><br><img src="https://alienstore.net.//imgs/ipad-pro-11-m2-chip-1-tb-wifi.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Pro 11</span></H5><br><p>$ <span class="precio">642593.75</span></p><br><p> U$S <span class="dolares">514.075</span></p><br><input type="number" id="cantidad13"><br><button onclick="agregarAlCarrito('ART-00099', 'Apple iPad Pro 11', '642593.75', 'cantidad13')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000100</span><br><img src="https://alienstore.net.//imgs/ipad-pro-11-m2-chip-1-tb-wifi.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Pro 11</span></H5><br><p>$ <span class="precio">745875</span></p><br><p> U$S <span class="dolares">596.7</span></p><br><input type="number" id="cantidad14"><br><button onclick="agregarAlCarrito('ART-000100', 'Apple iPad Pro 11', '745875', 'cantidad14')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000101</span><br><img src="https://alienstore.net.//imgs/ipad-pro-129-m2-chip-2-tb-wifi-5g.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Pro 12.9</span></H5><br><p>$ <span class="precio">763093.75</span></p><br><p> U$S <span class="dolares">610.475</span></p><br><input type="number" id="cantidad15"><br><button onclick="agregarAlCarrito('ART-000101', 'Apple iPad Pro 12.9', '763093.75', 'cantidad15')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000102</span><br><img src="https://alienstore.net.//imgs/ipad-pro-11-m2-chip-1-tb-wifi.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Pro 11</span></H5><br><p>$ <span class="precio">791781.25</span></p><br><p> U$S <span class="dolares">633.425</span></p><br><input type="number" id="cantidad16"><br><button onclick="agregarAlCarrito('ART-000102', 'Apple iPad Pro 11', '791781.25', 'cantidad16')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000103</span><br><img src="https://alienstore.net.//imgs/ipad-pro-11-m2-chip-1-tb-wifi.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Pro 11</span></H5><br><p>$ <span class="precio">803250</span></p><br><p> U$S <span class="dolares">642.6</span></p><br><input type="number" id="cantidad17"><br><button onclick="agregarAlCarrito('ART-000103', 'Apple iPad Pro 11', '803250', 'cantidad17')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000104</span><br><img src="https://alienstore.net.//imgs/ipad-pro-129-m2-chip-2-tb-wifi-5g.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Pro 12.9</span></H5><br><p>$ <span class="precio">820468.75</span></p><br><p> U$S <span class="dolares">656.375</span></p><br><input type="number" id="cantidad18"><br><button onclick="agregarAlCarrito('ART-000104', 'Apple iPad Pro 12.9', '820468.75', 'cantidad18')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000105</span><br><img src="https://alienstore.net.//imgs/ipad-pro-11-m2-chip-1-tb-wifi.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Pro 11</span></H5><br><p>$ <span class="precio">918000</span></p><br><p> U$S <span class="dolares">734.4</span></p><br><input type="number" id="cantidad19"><br><button onclick="agregarAlCarrito('ART-000105', 'Apple iPad Pro 11', '918000', 'cantidad19')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000106</span><br><img src="https://alienstore.net.//imgs/ipad-pro-129-m2-chip-2-tb-wifi-5g.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Pro 12.9</span></H5><br><p>$ <span class="precio">918000</span></p><br><p> U$S <span class="dolares">734.4</span></p><br><input type="number" id="cantidad20"><br><button onclick="agregarAlCarrito('ART-000106', 'Apple iPad Pro 12.9', '918000', 'cantidad20')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000107</span><br><img src="https://alienstore.net.//imgs/ipad-pro-129-m2-chip-2-tb-wifi-5g.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Pro 12.9</span></H5><br><p>$ <span class="precio">963906.25</span></p><br><p> U$S <span class="dolares">771.125</span></p><br><input type="number" id="cantidad21"><br><button onclick="agregarAlCarrito('ART-000107', 'Apple iPad Pro 12.9', '963906.25', 'cantidad21')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000108</span><br><img src="https://alienstore.net.//imgs/ipad-pro-129-m2-chip-2-tb-wifi-5g.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Pro 12.9</span></H5><br><p>$ <span class="precio">975375</span></p><br><p> U$S <span class="dolares">780.3</span></p><br><input type="number" id="cantidad22"><br><button onclick="agregarAlCarrito('ART-000108', 'Apple iPad Pro 12.9', '975375', 'cantidad22')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000109</span><br><img src="https://alienstore.net.//imgs/ipad-pro-11-m2-chip-1-tb-wifi.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Pro 11</span></H5><br><p>$ <span class="precio">992593.75</span></p><br><p> U$S <span class="dolares">794.075</span></p><br><input type="number" id="cantidad23"><br><button onclick="agregarAlCarrito('ART-000109', 'Apple iPad Pro 11', '992593.75', 'cantidad23')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000110</span><br><img src="https://alienstore.net.//imgs/ipad-pro-129-m2-chip-2-tb-wifi-5g.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Pro 12.9</span></H5><br><p>$ <span class="precio">1118812.5</span></p><br><p> U$S <span class="dolares">895.05</span></p><br><input type="number" id="cantidad24"><br><button onclick="agregarAlCarrito('ART-000110', 'Apple iPad Pro 12.9', '1118812.5', 'cantidad24')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000111</span><br><img src="https://alienstore.net.//imgs/ipad-pro-129-m2-chip-2-tb-wifi-5g.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Pro 12.9</span></H5><br><p>$ <span class="precio">1252203.125</span></p><br><p> U$S <span class="dolares">1001.7625</span></p><br><input type="number" id="cantidad25"><br><button onclick="agregarAlCarrito('ART-000111', 'Apple iPad Pro 12.9', '1252203.125', 'cantidad25')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000112</span><br><img src="https://alienstore.net.//imgs/ipad-pro-129-m2-chip-2-tb-wifi-5g.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Pro 12.9</span></H5><br><p>$ <span class="precio">1435812.5</span></p><br><p> U$S <span class="dolares">1148.65</span></p><br><input type="number" id="cantidad26"><br><button onclick="agregarAlCarrito('ART-000112', 'Apple iPad Pro 12.9', '1435812.5', 'cantidad26')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000113</span><br><img src="https://alienstore.net.//imgs/ipad-pro-129-m2-chip-2-tb-wifi-5g.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple iPad Pro 12.9</span></H5><br><p>$ <span class="precio">1665312.5</span></p><br><p> U$S <span class="dolares">1332.25</span></p><br><input type="number" id="cantidad27"><br><button onclick="agregarAlCarrito('ART-000113', 'Apple iPad Pro 12.9', '1665312.5', 'cantidad27')">Agregar al carrito</button></div></body>
+
+    </aside>
+
+</main>
+
+<footer>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#contactos">Contactos</a></li>
+    </ul>
+    <p>&copy; 2024 Tienda Apple</p>
+</footer>
+<script src="script.js"></script>
+<script>
+    // Ejemplo de agregar productos al carrito desde la página de inicio
+    // Puedes personalizar esto según tu diseño y necesidades
+    
+    function agregarProductoDesdeIndex(codigo, titulo, precio, cantidad) {
+        agregarAlCarrito(codigo, titulo, precio, cantidad);
+        alert('Producto agregado al carrito desde la página de inicio.');
+    }
+  </script>
+
+  <script>
+     // Función para formatear el precio
+function formatearPrecio(precio) {
+    // Convertir a número y formatear a 2 decimales
+    return precio.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+// Función para convertir y actualizar precios en el DOM
+function actualizarPrecios() {
+    // Obtener todos los elementos con clase 'precio' y 'dolares'
+    const precios = document.querySelectorAll('.precio');
+    const dolares = document.querySelectorAll('.dolares');
+
+    // Iterar sobre cada elemento para formatear y actualizar
+    precios.forEach(precio => {
+        const valor = parseFloat(precio.innerText);
+        precio.innerText = formatearPrecio(valor);
+    });
+
+    dolares.forEach(dolar => {
+        const valor = parseFloat(dolar.innerText);
+        // Formatear a 3 decimales para el formato en dólares
+        dolar.innerText = valor.toLocaleString('es-ES', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    });
+}
+
+// Llamar a la función para actualizar los precios al cargar la página
+window.onload = actualizarPrecios;
+  </script>
+
+</body>
+</html>
+
+
+

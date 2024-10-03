@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="catalogo.css">
+    <link rel="stylesheet" href="carrito.css">
+    <title>Tienda Apple</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="catalogo.css">
+    <title>Tienda Apple</title>
+ 
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="apple.png" alt="Logo" style="width: 60px; height: 60px;"></a>
+        <nav class="nav-desktop">
+            <ul>
+                <li><a href="catalogo.html">Home</a></li>
+                <li>
+                    <a href="#">Catálogo</a>
+                    <ul class="sub-menu">
+                        <li><a href="iphone.html">iPhone</a></li>
+                        <li><a href="mackbook.html">MacBook</a></li>
+                        <li><a href="ipad.html">iPad</a></li>
+                        <li><a href="imac.html">iMac</a></li>
+                        <li><a href="watche.html">Watches</a></li>
+                        <li><a href="acesorios.html">Accesorios</a></li>
+                    </ul>
+                </li>
+                <li><a href="contacto.html">Contacto</a></li>
+            
+            </ul>
+        </nav>
+        <div class="search-container">
+            <form id="form-inline">
+                <input class="form-control" type="search" id="searchInput" placeholder="Buscar productos">
+                <button type="button" id="buscar-btn">🔍</button>
+            </form>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </header>
+    
+    <div class="menu-mobile">
+        <div class="close-icon" onclick="toggleMenu()">✖</div>
+        <ul>
+            <li><a href="catalogo.html">Home</a></li>
+            <li>
+                <a href="#">Catálogo</a>
+                <ul class="sub-menu-mobile">
+                    <li><a href="iphone.html">iPhone</a></li>
+                    <li><a href="mackbook.html">MacBook</a></li>
+                    <li><a href="ipad.html">iPad</a></li>
+                    <li><a href="imac.html">iMac</a></li>
+                    <li><a href="watche.html">Watches</a></li>
+                    <li><a href="acesorios.html">Accesorios</a></li>
+                </ul>
+            </li>
+            <li><a href="contacto.html">Contacto</a></li>
+     
+        </ul>
+    </div>
+    
+    <main>
+        <h1>Carrito de compras</h1>
+    
+        <!-- Carrito para computadora (mostrar en pantalla grande) -->
+        <table id="carritoComputadora">
+          
+            
+                <tbody id="carritoTable">
+                    <!-- Aquí se llenarán los productos del carrito dinámicamente -->
+                </tbody>
+            </table>
+    
+        <!-- Carrito para móvil (mostrar en pantalla pequeña) -->
+        <table id="carritoMovil">
+            <tbody id="carritoTableMovil">
+                <!-- Aquí se llenarán los productos del carrito dinámicamente -->
+            </tbody>
+        </table>
+    
+        <p><span id="total">$0</span></p>
+        <a href="incio.html" id="alertMesage"><button onclick="abrirsesion()">Iniciar sesión</button></a>
+        <a href="index.html">Seguir comprando</a>
+    </main>
+    
+    <script src="script.js"></script>
+    <script>
+        function abrirsesion() {
+            // Lógica para abrir sesión (si es necesario)
+            transferirCarrito();  // Transfiere el carrito al pago
+        }
+    
+        function transferirCarrito() {
+            var carritoTable = document.getElementById('carritoTable');
+            var carritoInfo = { detalles: [] };
+    
+            for (var i = 0; i < carritoTable.rows.length; i++) {
+                var codigo = carritoTable.rows[i].cells[0].innerText;
+                var titulo = carritoTable.rows[i].cells[1].innerText;
+                var precio = carritoTable.rows[i].cells[2].innerText;
+                var cantidad = carritoTable.rows[i].cells[3].querySelector('input').value;
+                var subtotal = carritoTable.rows[i].cells[4].innerText;
+    
+                carritoInfo.detalles.push({ codigo, titulo, precio, cantidad, subtotal });
+            }
+    
+            localStorage.setItem('carritoInfo', JSON.stringify(carritoInfo));
+            window.location.href = 'pago.html';  // Redirecciona a la página de pago
+        }
+    </script>
+</body>
+</html>
+  

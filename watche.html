@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="catalogo.css">
+    <title>Tienda Apple</title>
+    
+
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="catalogo.css">
+        <title>Tienda Apple</title>
+     
+    </head>
+    <body>
+        <header>
+            <a href="index.html"><img src="apple.png" alt="Logo" style="width: 60px; height: 60px;"></a>
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="catalogo.html">Home</a></li>
+                    <li>
+                        <a href="#">Catálogo</a>
+                        <ul class="sub-menu">
+                            <li><a href="iphone.html">iPhone</a></li>
+                            <li><a href="mackbook.html">MacBook</a></li>
+                            <li><a href="ipad.html">iPad</a></li>
+                            <li><a href="imac.html">iMac</a></li>
+                            <li><a href="watche.html">Watches</a></li>
+                            <li><a href="acesorios.html">Accesorios</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="carrito.html">🛒</a></li>
+                </ul>
+            </nav>
+            <div class="search-container">
+                <form id="form-inline">
+                    <input class="form-control" type="search" id="searchInput" placeholder="Buscar productos">
+                    <button type="button" id="buscar-btn">🔍</button>
+                </form>
+            </div>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        </header>
+        
+        <div class="menu-mobile">
+            <div class="close-icon" onclick="toggleMenu()">✖</div>
+            <ul>
+                <li><a href="catalogo.html">Home</a></li>
+                <li>
+                    <a href="#">Catálogo</a>
+                    <ul class="sub-menu-mobile">
+                        <li><a href="iphone.html">iPhone</a></li>
+                        <li><a href="mackbook.html">MacBook</a></li>
+                        <li><a href="ipad.html">iPad</a></li>
+                        <li><a href="imac.html">iMac</a></li>
+                        <li><a href="watche.html">Watches</a></li>
+                        <li><a href="acesorios.html">Accesorios</a></li>
+                    </ul>
+                </li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="carrito.html">🛒</a></li>
+            </ul>
+        </div>
+    <main>
+       
+        
+            <h1>Productos Destacados</h1>
+            <label for="ordenar">Ordenar por precio:</label>
+    <select id="ordenar" onchange="ordenarPorPrecio(this.value)">
+        <option value="menor">Menor a Mayor</option>
+        <option value="mayor">Mayor a Menor</option>
+    </select>
+      <aside id="catalogo"><div class="catalogo-item"><span id="codigo">ART-000159</span><br><img src="https://alienstore.net.//imgs/watch-compare-ultra-202309.jfif" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple Watch Ultra 2</span></H5><br><p>$ <span class="precio">916562.5</span></p><br><p> U$S <span class="dolares">733.25</span></p><br><input type="number" id="cantidad1"><br><button onclick="agregarAlCarrito('ART-000159', 'Apple Watch Ultra 2', '916562.5', 'cantidad1')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000160</span><br><img src="https://alienstore.net.//imgs/Apple Watch Series 9 45mm Gps Midnight Al Midnight.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple Watch Series 9 45mm Gps Midnight Al Midnight O/s</span></H5><br><p>$ <span class="precio">540641.25</span></p><br><p> U$S <span class="dolares">432.513</span></p><br><input type="number" id="cantidad2"><br><button onclick="agregarAlCarrito('ART-000160', 'Apple Watch Series 9 45mm Gps Midnight Al Midnight O/s', '540641.25', 'cantidad2')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000161</span><br><img src="https://alienstore.net.//imgs/apple-watch-41mm-series-8-gps-aluminum-case-with-sport-band-s.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple Watch 41mm [SERIES 8 GPS] Aluminum case with Sport Band - S/M</span></H5><br><p>$ <span class="precio">359403.75</span></p><br><p> U$S <span class="dolares">287.523</span></p><br><input type="number" id="cantidad3"><br><button onclick="agregarAlCarrito('ART-000161', 'Apple Watch 41mm [SERIES 8 GPS] Aluminum case with Sport Band - S/M', '359403.75', 'cantidad3')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000162</span><br><img src="https://alienstore.net.//imgs/Apple-Watch-Series-8-GPS-41mm.jpg" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple Watch Series 8 GPS 41mm</span></H5><br><p>$ <span class="precio">185895</span></p><br><p> U$S <span class="dolares">148.716</span></p><br><input type="number" id="cantidad4"><br><button onclick="agregarAlCarrito('ART-000162', 'Apple Watch Series 8 GPS 41mm', '185895', 'cantidad4')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000163</span><br><img src="https://alienstore.net.//imgs/Apple-Watch-Series-8-GPS-45mm.jpg" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple Watch Series 8 GPS 45mm</span></H5><br><p>$ <span class="precio">195193.125</span></p><br><p> U$S <span class="dolares">156.1545</span></p><br><input type="number" id="cantidad5"><br><button onclick="agregarAlCarrito('ART-000163', 'Apple Watch Series 8 GPS 45mm', '195193.125', 'cantidad5')">Agregar al carrito</button></div><div class="catalogo-item"><span id="codigo">ART-000164</span><br><img src="https://alienstore.net.//imgs/Apple-Watch-Ultra-49mm-Titanium.jpg" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple Watch Ultra 49mm Titanium</span></H5><br><p>$ <span class="precio">983984.375</span></p><br><p> U$S <span class="dolares">787.1875</span></p><br><input type="number" id="cantidad6"><br><button onclick="agregarAlCarrito('ART-000164', 'Apple Watch Ultra 49mm Titanium', '983984.375', 'cantidad6')">Agregar al carrito</button></div>
+        </aside>
+
+    </main>
+
+    <footer>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#catalogo">Catálogo</a></li>
+            <li><a href="#contactos">Contactos</a></li>
+        </ul>
+        <p>&copy; 2024 Tienda Apple</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // Ejemplo de agregar productos al carrito desde la página de inicio
+        // Puedes personalizar esto según tu diseño y necesidades
+        
+        function agregarProductoDesdeIndex(codigo, titulo, precio, cantidad) {
+            agregarAlCarrito(codigo, titulo, precio, cantidad);
+            alert('Producto agregado al carrito desde la página de inicio.');
+        }
+      </script>
+         <script>
+            // Función para formatear el precio
+       function formatearPrecio(precio) {
+           // Convertir a número y formatear a 2 decimales
+           return precio.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+       }
+   
+       // Función para convertir y actualizar precios en el DOM
+       function actualizarPrecios() {
+           // Obtener todos los elementos con clase 'precio' y 'dolares'
+           const precios = document.querySelectorAll('.precio');
+           const dolares = document.querySelectorAll('.dolares');
+   
+           // Iterar sobre cada elemento para formatear y actualizar
+           precios.forEach(precio => {
+               const valor = parseFloat(precio.innerText);
+               precio.innerText = formatearPrecio(valor);
+           });
+   
+           dolares.forEach(dolar => {
+               const valor = parseFloat(dolar.innerText);
+               // Formatear a 3 decimales para el formato en dólares
+               dolar.innerText = valor.toLocaleString('es-ES', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+           });
+       }
+   
+       // Llamar a la función para actualizar los precios al cargar la página
+       window.onload = actualizarPrecios;
+         </script>
+   
+</body>
+</html>
