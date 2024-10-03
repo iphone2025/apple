@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="catalogo.css">
+    <title>Tienda Apple</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="catalogo.css">
+    <title>Tienda Apple</title>
+ 
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="apple.png" alt="Logo" style="width: 60px; height: 60px;"></a>
+        <nav class="nav-desktop">
+            <ul>
+                <li><a href="catalogo.html">Home</a></li>
+                <li>
+                    <a href="#">Catálogo</a>
+                    <ul class="sub-menu">
+                        <li><a href="iphone.html">iPhone</a></li>
+                        <li><a href="mackbook.html">MacBook</a></li>
+                        <li><a href="ipad.html">iPad</a></li>
+                        <li><a href="imac.html">iMac</a></li>
+                        <li><a href="watche.html">Watches</a></li>
+                        <li><a href="acesorios.html">Accesorios</a></li>
+                    </ul>
+                </li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="carrito.html">🛒</a></li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <form id="form-inline">
+                <input class="form-control" type="search" id="searchInput" placeholder="Buscar productos">
+                <button type="button" id="buscar-btn">🔍</button>
+            </form>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </header>
+    
+    <div class="menu-mobile">
+        <div class="close-icon" onclick="toggleMenu()">✖</div>
+        <ul>
+            <li><a href="catalogo.html">Home</a></li>
+            <li>
+                <a href="#">Catálogo</a>
+                <ul class="sub-menu-mobile">
+                    <li><a href="iphone.html">iPhone</a></li>
+                    <li><a href="mackbook.html">MacBook</a></li>
+                    <li><a href="ipad.html">iPad</a></li>
+                    <li><a href="imac.html">iMac</a></li>
+                    <li><a href="watche.html">Watches</a></li>
+                    <li><a href="acesorios.html">Accesorios</a></li>
+                </ul>
+            </li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="carrito.html">🛒</a></li>
+        </ul>
+    </div>
+    
+    <main>
+        <div class="banner-container">
+            <img src="banner.jpg" alt="Banner" class="banner">
+          
+        </div>
+
+        
+            <h1>Productos Destacados</h1>
+            <aside id="catalogo">
+                <div class="catalogo-item">
+                    <span id="codigo">ART-0001</span><br>
+                    <img src="https://alienstore.net.//imgs/iphone16pro_a_1.png" alt="imagen" width="200" height="150"><br>
+                    <H5><span id="titulo">Apple iPhone 16 Pro Max ; 256GB</span></H5><br>
+                    <p>$ <span id="precio">2023312.5</span></p><br>
+                    <p> U$S <span id="oferta">1618.65</span></p><br>
+                    <input type="number" id="cantidad1">
+                    <button onclick="agregarAlCarrito('ART-0001', 'Apple iPhone 16 Pro Max ; 256GB', '2023312.5', 'cantidad1')">Agregar al carrito</button>
+                </div>
+                <div class="catalogo-item">
+                    <span id="codigo">ART-000114</span><br>
+                    <img src="https://alienstore.net.//imgs/macbook-air-133-retina-mgn93-m1-chip-i7-256-gb-sil.png" alt="imagen" width="200" height="150"><br><H5><span class="titulo">Apple MacBook Air 13.3</span></H5><br><p>$ <span class="precio">603875</span></p><br><p> U$S <span class="dolares">483.1</span></p><br><input type="number" id="cantidad1"><br>
+                    <button onclick="agregarAlCarrito('ART-000114', 'Apple MacBook Air 13.3', '603875', 'cantidad1')">Agregar al carrito</button>
+                </div>
+                <div class="catalogo-item">
+                    <span id="codigo">ART-000159</span><br>
+                    <img src="https://alienstore.net.//imgs/watch-compare-ultra-202309.jfif" alt="imagen" width="200" height="150"><br>
+                    <H5><span class="titulo">Apple Watch Ultra 2</span></H5><br>
+                    <p>$ <span class="precio">916562.5</span></p><br>
+                    <p> U$S <span class="dolares">733.25</span></p><br>
+                    <input type="number" id="cantidad1"><br>
+                    <button onclick="agregarAlCarrito('ART-000159', 'Apple Watch Ultra 2', '916562.5', 'cantidad1')">Agregar al carrito</button>
+                </div>
+                <div class="catalogo-item">
+                    <span id="codigo">ART-00061</span><br>
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_664823-MLA71304726003_082023-O.jpg" alt="imagen" width="200" height="150"><br>
+                    <H5><span class="titulo">Magic KeyBoard 11" for iPad Air M2</span></H5><br>
+                    <p>$ <span class="precio">593750</span></p><br>
+                    <p> U$S <span class="dolares">475</span></p><br>
+                    <input type="number" id="cantidad1"><br>
+                    <button onclick="agregarAlCarrito('ART-00061', 'Magic KeyBoard 11 for iPad Air M2', '593750', 'cantidad1')">Agregar al carrito</button>
+                </div>
+            <a href="catalogo.html" class="ver-todos">Ver todos los productos</a>
+        </aside>
+
+        <section id="contactos">
+            <h2>Enviar WhatsApp</h2>
+            <form id="whatsappForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" required></textarea>
+                </div>
+                <button type="submit">Enviar WhatsApp</button>
+            </form>
+            <div id="map">
+                <h3>Nuestra Ubicación</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31510.401138211845!2d-58.431779!3d-34.616427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a335eaf2b8f14b%3A0xf5bb0f4c88f6c1dc!2sVilla%20Crespo%2C%20CABA!5e0!3m2!1ses!2sar!4v1632745261741!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="#contactos">Contactos</a></li>
+        </ul>
+        <p>&copy; 2024 Tienda Apple</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // Ejemplo de agregar productos al carrito desde la página de inicio
+        // Puedes personalizar esto según tu diseño y necesidades
+        
+        function agregarProductoDesdeIndex(codigo, titulo, precio, cantidad) {
+            agregarAlCarrito(codigo, titulo, precio, cantidad);
+            alert('Producto agregado al carrito desde la página de inicio.');
+        }
+      </script>
+         <script>
+            document.getElementById('whatsappForm').addEventListener('submit', function(event) {
+         event.preventDefault(); // Prevent form submission
+         
+         // Get input values
+         const nombre = document.getElementById('nombre').value;
+         const apellido = document.getElementById('apellido').value;
+         const mensaje = document.getElementById('mensaje').value;
+     
+         // Formatted WhatsApp message
+         const formattedMessage = `Sr/Sra ${nombre} ${apellido}, ${mensaje}`;
+         
+         // WhatsApp URL, always sending to +5491130613999
+         const whatsappUrl = `https://wa.me/5491160224513?text=${encodeURIComponent(formattedMessage)}`;
+         
+         // Redirect to WhatsApp link
+         window.location.href = whatsappUrl;
+     });
+     
+         </script>
+</body>
+</html>

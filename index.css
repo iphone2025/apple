@@ -1,0 +1,213 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+/* Logo */
+header a img {
+    height: 60px;
+    width: 60px;
+}
+
+/* Enlaces */
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Menú en computadora */
+.nav-desktop {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinea a la izquierda */
+    flex-grow: 1;
+}
+
+.nav-desktop ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-desktop ul li {
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+}
+
+.nav-desktop ul li a {
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+}
+
+/* Submenú en computadora */
+.sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    padding: 10px;
+    list-style-type: none;
+    width: 150px;
+}
+
+.sub-menu li {
+    margin: 0;
+}
+
+.sub-menu li a {
+    color: black; /* Texto normal en negro */
+    font-size: 16px;
+    padding: 5px;
+    display: block;
+}
+
+.sub-menu li a:hover {
+    color: white; /* Texto seleccionado en blanco */
+    background-color: #666; /* Fondo gris oscuro para resaltar la selección */
+}
+
+.nav-desktop ul li:hover .sub-menu {
+    display: block;
+}
+
+/* Formulario de búsqueda */
+.search-container {
+    display: flex;
+    justify-content: center;
+    flex-grow: 2;
+}
+
+#form-inline {
+    display: flex;
+}
+
+.form-control {
+    padding: 10px;
+    font-size: 18px;
+    width: 300px;
+}
+
+#buscar-btn {
+    padding: 10px;
+    background-color: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#buscar-btn:hover {
+    background-color: #555;
+}
+
+/* Ícono del carrito blanco */
+.nav-desktop ul li a[href="carrito.html"] {
+    color: white; /* Ícono del carrito en blanco */
+}
+
+/* Menú móvil */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.menu-mobile {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #333;
+    width: 50%; /* Menú ocupa la mitad de la pantalla */
+    height: 100vh;
+    color: white;
+    z-index: 1000;
+}
+
+.menu-mobile ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 60px;
+}
+
+.menu-mobile ul li {
+    margin-bottom: 20px;
+}
+
+.menu-mobile ul li a {
+    color: white;
+    font-size: 18px;
+}
+
+.sub-menu-mobile {
+    list-style-type: none;
+    padding-left: 20px;
+    display: none;
+}
+
+.menu-mobile ul li:hover .sub-menu-mobile {
+    display: block;
+}
+
+.close-icon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+/* Media queries para móviles */
+@media (max-width: 768px) {
+    .nav-desktop {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+        font-size: 30px;
+    }
+
+    header {
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    .search-container {
+        margin-top: 20px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    #form-inline {
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .form-control {
+        width: 180px;
+    }
+
+    #buscar-btn {
+        margin-left: 10px;
+    }
+
+    /* Submenú en Catálogo (móvil) */
+    .menu-mobile ul li:hover .sub-menu-mobile {
+        display: block;
+    }
+}
