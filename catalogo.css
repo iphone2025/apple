@@ -33,23 +33,6 @@ h1 {
     text-decoration: underline;
 }
 
-/* Botón de carrito más atractivo */
-.catalogo-item button {
-    background-color: #ecdd09; /* Azul Apple */
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    width: 100%;
-}
-
-.catalogo-item button:hover {
-    background-color: #008ecc;
-}
-
 /* Estilos del catálogo */
 #catalogo {
     display: grid;
@@ -66,6 +49,11 @@ h1 {
     padding: 15px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 350px; /* Asegura que todos tengan el mismo tamaño */
 }
 
 .catalogo-item:hover {
@@ -73,32 +61,54 @@ h1 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Ajustes para imágenes */
 .catalogo-item img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
+    width: 100%;
+    height: 200px; /* Ajusta según el diseño que desees */
+    object-fit: contain; /* Mantiene las proporciones de la imagen */
     border-radius: 5px;
 }
 
+/* Títulos */
 .catalogo-item h5 {
     font-size: 18px;
     color: #004a99;
     margin: 10px 0;
 }
 
+/* Precios */
 .catalogo-item p {
     font-size: 16px;
     color: #004a99;
     font-weight: bold;
+    margin: 5px 0;
 }
 
+/* Input para cantidad */
 .catalogo-item input[type="number"] {
-    width: 40px;
+    width: 50px;
     height: 40px;
     border: 2px solid #00bfff;
     border-radius: 5px;
     text-align: center;
     font-size: 16px;
+}
+
+/* Botón de carrito más atractivo */
+.catalogo-item button {
+    background-color: #ecdd09;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.catalogo-item button:hover {
+    background-color: #008ecc;
 }
 
 /* Estilos responsivos para móvil */
@@ -108,11 +118,7 @@ h1 {
     }
 
     .catalogo-item {
-        margin: 10px;
-    }
-
-    h1 {
-        font-size: 28px;
+        min-height: 300px; /* Asegura que las tarjetas sigan siendo consistentes */
     }
 }
 
